@@ -16,7 +16,8 @@ function getShoppingList(recipeId){
     .join('Recipes', 'Instructions.recipeId', '=', 'Recipes.id')
     .select('Instructions.id', 'Recipes.RecipeName')
     .join('Ingredients', 'Instructions.ingredientId', '=', 'Ingredients.id')
-    .select('Instructions.ingredientId', 'Ingredients.IngredientName')
+    .select('Ingredients.IngredientName')
+    .select('Instructions.Quantity')
     .where({ ['Recipes.id']: recipeId})
 }
 function getInstructions(recipe_id){
